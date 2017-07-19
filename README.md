@@ -2,7 +2,7 @@
 
 event delegation for native DOM, heavily inspired by jQuery .on method
 
-# implementation
+### Implementation
 ```javascript
 // change an anchor element with href = '#' to href = 'javascript:void(0)'
 document.addEventDelegation('mouseover', 'a[href="#"]', function(){
@@ -10,7 +10,7 @@ document.addEventDelegation('mouseover', 'a[href="#"]', function(){
 });
 ```
 
-# TODO
+### TODO
 
 - [x] Make add event delegation
 - [x] Make method for multiple event listeners with one handler
