@@ -2,8 +2,8 @@
   // heavily inspired by jQuery .on method
 
   // now we can add multiple space separated event names with addEventListener
-  Element.prototype.addEventListener = (function(){
-    var addEventListener = Element.prototype.addEventListener;
+  EventTarget.prototype.addEventListener = (function(){
+    var addEventListener = EventTarget.prototype.addEventListener;
     return function(){
       var args = arguments;
       var eventNames = args[0];
@@ -12,7 +12,7 @@
       eventNames
       .split(' ')
       .filter(Boolean)
-      .foreach(function(eventName){
+      .forEach(function(eventName){
         var newArgs = [].slice.call(args);
         newArgs[0] = eventName;
         addEventListener.apply(context, newArgs);
@@ -36,7 +36,7 @@
     };
 
   // delegate events for bubbling events
-  Element.prototype.addEventDelegation = function(eventName, childSelector, callback){
+  EventTarget.prototype.addEventDelegation = function(eventName, childSelector, callback){
     if (typeof eventName !== 'string' || 
       typeof childSelector !== 'string' || 
       typeof callback !== 'function')
